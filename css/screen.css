@@ -17,6 +17,12 @@ body {
     margin: 0 auto;
 }
 
+@media (min-width: 768px) {
+    html {
+        padding: 48px 48px 24px;
+    }
+}
+
 /* html {
     box-sizing: border-box;
 }
@@ -151,18 +157,21 @@ a:focus {
     color: Crimson;
 }
 
+@media (min-width: 768px) {
+    h1 {
+        font-size: 58px;
+        line-height: 64px;
+    }
+}
+
+.odd {
+    background-color: lightgrey;
+}
+
 /*
     Objects: Container
     ---
     Creates a horizontal container that sets de global max-width
-*/
-
-/*
-.o-container {
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 1440px;
-}
 */
 
 /*
@@ -178,22 +187,9 @@ a:focus {
 */
 
 /*
-.c-row {
-    position: relative;
-    padding: 24px 24px 0;
-}
-*/
-
-/*
     Utility classes
     ---
     Several helper classes
-*/
-
-/*
-.u-max-width-sm {
-    max-width: 36em
-}
 */
 
 /*
@@ -214,15 +210,7 @@ a:focus {
 
 /* Medium devices (tablets, 768px and up) */
 
-@media (min-width: 768px) {
-    html {
-        padding: 48px 48px 24px;
-    }
-    h1 {
-        font-size: 58px;
-        line-height: 64px;
-    }
-}
+@media (min-width: 768px) {}
 
 /* Large devices (landscape tablets, desktops, 992px and up) */
 
