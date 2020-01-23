@@ -39,13 +39,13 @@ body {
  */
 
 ::-moz-selection {
-    background: #e85e00;
+    background: #44C8F5;
     color: white;
     text-shadow: none;
 }
 
 ::selection {
-    background: #e85e00;
+    background: #44C8F5;
     color: white;
     text-shadow: none;
 }
