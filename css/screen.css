@@ -138,7 +138,7 @@ figcaption {
 hr {
     border: 0;
     height: 1px;
-    background: LightGrey;
+    background: gainsboro;
     margin: 0 0 24px;
 }
 
@@ -169,6 +169,7 @@ th {
 th,
 td {
     padding: 4px 8px;
+    border-bottom: 1px solid gainsboro;
 }
 
 @media (min-width: 768px) {
