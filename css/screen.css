@@ -8,8 +8,9 @@ html {
     font-size: 16px;
     line-height: 1.5;
     font-family: "Helvetica Neue", Helvetica, arial, sans-serif;
+    font-family: "PT Serif", serif;
     color: #111;
-    padding: 48px 24px 24px;
+    padding: 24px 24px 0;
     scroll-behavior: smooth;
 }
 
@@ -58,8 +59,14 @@ img {
     Default markup for typographic elements
 */
 
+h1,
+h2,
+h3,
+h4 {
+    font-family: 'Archivo', sans-serif;
+}
+
 h1 {
-    font-family: "Times New Roman", serif;
     font-size: 36px;
     font-weight: normal;
     line-height: 40px;
@@ -111,7 +118,7 @@ blockquote {
     font-size: 23px;
     line-height: 32px;
     margin: 0 0 24px;
-    font-family: "Times New Roman", serif;
+    font-family: 'Permanent Marker', cursive;
 }
 
 blockquote * {
