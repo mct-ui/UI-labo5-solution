@@ -1,56 +1,64 @@
+/*---------------------------------------/*
+ # TOOLS
+/*---------------------------------------*/
+/*---------------------------------------/*
+ # SETTINGS
+/*---------------------------------------*/
+/*
+    Settings: Colors
+*/
+/*
+    Settings: Typography
+*/
+/*
+    Settings: Spacing
+*/
+/*---------------------------------------/*
+ # GENERIC
+/*---------------------------------------*/
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  font-size: 100%;
+  font-weight: normal;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+/*---------------------------------------/*
+ # ELEMENTS
+/*---------------------------------------*/
 /*
     Elements: Page
     ---
     Default markup for page level elements
 */
-
 html {
-    font-size: 16px;
-    line-height: 1.5;
-    font-family: "Helvetica Neue", Helvetica, arial, sans-serif;
-    font-family: "PT Serif", serif;
-    color: #111;
-    padding: 24px 24px 0;
-    scroll-behavior: smooth;
-}
-
-body {
-    max-width: 42em;
-    margin: 0 auto;
-}
-
-@media (min-width: 768px) {
-    html {
-        padding: 48px 48px 24px;
-    }
-}
-
-/* html {
-    box-sizing: border-box;
-}
-
-*, *:before, *:after {
-    box-sizing: inherit;
-} */
-
-/*
- * Customize the color & background color to match your design.
- */
-
-::selection {
-    background: #44C8F5;
-    color: white;
+  font-size: 100%;
+  line-height: 1.5;
+  font-family: "Helvetica Neue", Helvetica, arial, sans-serif;
+  color: hsl(198.0786026201, 10%, 10%);
+  scroll-behavior: smooth;
 }
 
 /*
-    Elements: Images
-    ---
-    Default markup for images to make them responsive
+    Customize the background color and color to match your design.
 */
-
-img {
-    max-width: 100%;
-    vertical-align: top;
+::-moz-selection {
+  background: hsl(198.0786026201, 100%, 50%);
+  color: white;
+}
+::selection {
+  background: hsl(198.0786026201, 100%, 50%);
+  color: white;
 }
 
 /*
@@ -58,39 +66,46 @@ img {
     ---
     Default markup for typographic elements
 */
-
-h1,
-h2,
-h3,
-h4 {
-    font-family: 'Archivo', sans-serif;
-}
-
 h1 {
-    font-size: 36px;
-    font-weight: normal;
-    line-height: 40px;
-    margin: 0 0 48px;
+  font-size: 1.8020324707rem;
+  font-weight: 700;
+  line-height: 2rem;
+  margin-bottom: 1.5rem;
+}
+@media (min-width: 577px) {
+  h1 {
+    font-size: 2.8865075782rem;
+    line-height: 3rem;
+  }
+}
+@media (min-width: 1201px) {
+  h1 {
+    font-size: 3.6532361537rem;
+    line-height: 4rem;
+  }
 }
 
 h2 {
-    font-size: 23px;
-    line-height: 32px;
-    margin: 0 0 24px;
+  font-weight: 700;
+  font-size: 1.423828125rem;
+  line-height: 1.5rem;
+  margin-bottom: 1.5rem;
 }
 
 h3 {
-    font-size: 18px;
-    line-height: 24px;
-    margin: 0 0 24px;
+  font-weight: 700;
+  font-size: 1.125rem;
+  line-height: 1.5rem;
+  margin-bottom: 1.5rem;
 }
 
 h4,
 h5,
 h6 {
-    font-size: 16px;
-    line-height: 24px;
-    margin: 0 0 24px;
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  margin-bottom: 1.5rem;
 }
 
 p,
@@ -100,85 +115,85 @@ dl,
 table,
 address,
 figure {
-    margin: 0 0 24px;
+  margin-bottom: 1.5rem;
 }
 
 ul,
 ol {
-    padding-left: 24px;
+  padding: 0;
+  list-style-position: inside;
 }
 
 li ul,
 li ol {
-    margin-bottom: 0;
+  margin-bottom: 0;
 }
 
 blockquote {
-    font-style: italic;
-    font-size: 23px;
-    line-height: 32px;
-    margin: 0 0 24px;
-    font-family: 'Permanent Marker', cursive;
-}
-
-blockquote * {
-    font-size: inherit;
-    line-height: inherit;
+  font-family: "Times New Roman", Times, serif;
+  font-style: italic;
+  font-size: 1.423828125rem;
+  line-height: 2rem;
+  margin-bottom: 1.5rem;
 }
 
 figcaption {
-    font-size: 12px;
-    line-height: 16px;
-    padding-top: 8px;
-    color: Grey;
+  font-size: 0.8888888889rem;
+  line-height: 1rem;
+  margin-top: 0.5rem;
+  color: hsl(198.0786026201, 10%, 50%);
 }
 
 hr {
-    border: 0;
-    height: 1px;
-    background: gainsboro;
-    margin: 0 0 24px;
+  border: 0;
+  height: 1px;
+  background: hsl(198.0786026201, 10%, 90%);
+  margin-bottom: 1.5rem;
 }
 
 a {
-    color: RoyalBlue;
-    transition: all .1s ease-in-out;
+  color: hsl(198.0786026201, 100%, 40%);
+  transition: all 0.1s ease-in-out;
 }
 
-a:visited,
+a:visited {
+  color: hsl(198.0786026201, 100%, 40%);
+}
+
+a:hover {
+  color: hsl(198.0786026201, 100%, 50%);
+}
+
 a:active {
-    color: BlueViolet;
+  color: hsl(198.0786026201, 100%, 30%);
 }
 
-a:hover,
-a:focus {
-    color: Crimson;
+/*---------------------------------------/*
+ # OBJECTS
+/*---------------------------------------*/
+/*
+    Objects: Row
+    ---
+    Creates a horizontal row with padding
+*/
+.o-row {
+  padding: 1.5rem 1.5rem 0;
+  display: flow-root;
 }
 
-table {
-    width: 100%;
-    border-spacing: 0;
+.o-row--primary {
+  background: hsl(198.0786026201, 95%, 65%);
 }
 
-th {
-    text-align: left;
+.o-row--grey-dark {
+  background-color: hsl(198.0786026201, 10%, 20%);
+  color: white;
 }
 
-th,
-td {
-    padding: 4px 8px;
-    border-bottom: 1px solid gainsboro;
-}
-
-@media (min-width: 768px) {
-    h1 {
-        font-size: 58px;
-        line-height: 64px;
-    }
-}
-
-.odd {
-    background-color: whitesmoke;
+@media (min-width: 769px) {
+  .o-row--lg {
+    padding: 3rem 3rem 1.5rem;
+  }
 }
 
 /*
@@ -186,116 +201,21 @@ td {
     ---
     Creates a horizontal container that sets de global max-width
 */
-
-/*
-    Objects: Grid
-    ---
-    Creates a horizontal row with padding
-*/
-
-/*
-    Components: Row
-    ---
-    Creates a horizontal row with padding
-*/
-
-/*
-    Utility classes
-    ---
-    Several helper classes
-*/
-
-/*
-    Media Queries
-    ---
-    EXAMPLE Media Queries for Responsive Design.
-    These examples override the primary ('mobile first') styles.
-    Modify as content requires.
-*/
-
-/* Extra small devices (portrait phones, less than 576px)
-   No media query since this is the default in Bootstrap
-*/
-
-/* Small devices (landscape phones, 576px and up) */
-
-@media (min-width: 576px) {}
-
-/* Medium devices (tablets, 768px and up) */
-
-@media (min-width: 768px) {}
-
-/* Large devices (landscape tablets, desktops, 992px and up) */
-
-@media (min-width: 992px) {}
-
-/* Extra large devices (large desktops, 1200px and up) */
-
-@media (min-width: 1200px) {}
-
-/*
-    Print styles.
-    ---
-    Inlined to avoid the additional HTTP request:
-    http://www.phpied.com/delay-loading-your-print-css/
-*/
-
-@media print {
-    *,
-    *:before,
-    *:after {
-        background: transparent !important;
-        color: #000 !important;
-        /* Black prints faster:
-                                   http://www.sanbeiji.com/archives/953 */
-        box-shadow: none !important;
-        text-shadow: none !important;
-    }
-    a,
-    a:visited {
-        text-decoration: underline;
-    }
-    a[href]:after {
-        content: " (" attr(href) ")";
-    }
-    abbr[title]:after {
-        content: " (" attr(title) ")";
-    }
-    /*
-     * Don't show links that are fragment identifiers,
-     * or use the `javascript:` pseudo protocol
-     */
-    a[href^="#"]:after,
-    a[href^="javascript:"]:after {
-        content: "";
-    }
-    pre {
-        white-space: pre-wrap !important;
-    }
-    pre,
-    blockquote {
-        border: 1px solid #999;
-        page-break-inside: avoid;
-    }
-    /*
-     * Printing Tables:
-     * http://css-discuss.incutio.com/wiki/Printing_Tables
-     */
-    thead {
-        display: table-header-group;
-    }
-    tr,
-    img {
-        page-break-inside: avoid;
-    }
-    p,
-    h2,
-    h3 {
-        orphans: 3;
-        widows: 3;
-    }
-    h2,
-    h3 {
-        page-break-after: avoid;
-    }
+.o-container {
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  max-width: 50em; /* 90 * 16px = 1440px */
 }
+
+/*
+    Objects: Layout
+    ---
+    Creates a Layout with flexbox
+*/
+/*---------------------------------------/*
+ # COMPONENTS
+/*---------------------------------------*/
+/*---------------------------------------/*
+ # UTILITIES
+/*---------------------------------------*/
