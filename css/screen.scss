@@ -7,6 +7,25 @@
   @return map-get(map-get($palettes, $palette), $color);
 }
 
+//
+// Media Query mixin
+// @include mq(#point, #query1, #query2);
+//
+
+@mixin mq($breakpoint, $query1: min, $query2: width) {
+  $query: map-get($breakpoints, $breakpoint);
+
+  @if $query != null {
+    @media (#{$query1}-#{$query2}: #{$query}) {
+      @content;
+    }
+  } @else {
+    @media (#{$query1}-#{$query2}: $breakpoint) {
+      @content;
+    }
+  }
+}
+
 /*---------------------------------------/*
  # SETTINGS
 /*---------------------------------------*/
@@ -204,13 +223,12 @@ h1 {
   line-height: calc($baseline * 4);
   margin-bottom: $space-m;
 
-  //Responsive font-size and line-height
-  @media (min-width: 577px) {
+  @include mq(bp1) {
     font-size: $ms9;
     line-height: calc($baseline * 6);
   }
 
-  @media (min-width: 1201px) {
+  @include mq(bp2) {
     font-size: $ms11;
     line-height: calc($baseline * 8);
   }
@@ -345,12 +363,148 @@ a:active {
 /*
     Objects: Layout
     ---
-    Creates a Layout with flexbox
+    The layout object provides us with a column-style layout system. This object
+    contains the basic structural elements, but classes should be complemented
+    with width utilities
 */
 
-/*---------------------------------------/*
- # COMPONENTS
-/*---------------------------------------*/
+.o-layout {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.o-layout__item {
+  flex-basis: 100%;
+  flex-grow: 1;
+  flex-shrink: 1;
+}
+
+/* gutter modifiers, these affect o-layout__item too */
+
+.o-layout--gutter {
+  margin: 0 calc($columns-gutter / -2);
+}
+
+.o-layout--gutter > .o-layout__item {
+  padding: 0 calc($columns-gutter / 2);
+}
+
+.o-layout--gutter-sm {
+  margin: 0 -6px;
+}
+
+.o-layout--gutter-sm > .o-layout__item {
+  padding: 0 6px;
+}
+
+.o-layout--gutter-lg {
+  margin: 0 -24px;
+}
+
+.o-layout--gutter-lg > .o-layout__item {
+  padding: 0 24px;
+}
+
+/* reverse horizontal row modifier */
+
+.o-layout--row-reverse {
+  flex-direction: row-reverse;
+}
+
+/* Horizontal alignment modifiers*/
+
+.o-layout--justify-start {
+  justify-content: flex-start;
+}
+
+.o-layout--justify-end {
+  justify-content: flex-end;
+}
+
+.o-layout--justify-center {
+  justify-content: center;
+}
+
+.o-layout--justify-space-around {
+  justify-content: space-around;
+}
+
+.o-layout--justify-space-evenly {
+  justify-content: space-evenly;
+}
+
+.o-layout--justify-space-between {
+  justify-content: space-between;
+}
+
+/* Vertical alignment modifiers */
+
+.o-layout--align-start {
+  align-items: flex-start;
+}
+
+.o-layout--align-end {
+  align-items: flex-end;
+}
+
+.o-layout--align-center {
+  align-items: center;
+}
+
+.o-layout--align-baseline {
+  align-items: baseline;
+}
+
+/* Vertical alignment modifiers that only work if there is one than one flex item */
+
+.o-layout--align-content-start {
+  align-content: start;
+}
+
+.o-layout--align-content-end {
+  align-content: end;
+}
+
+.o-layout--align-content-center {
+  align-content: center;
+}
+
+.o-layout--align-content-space-around {
+  align-content: space-around;
+}
+
+.o-layout--align-content-space-between {
+  align-content: space-between;
+}
+
+/*------------------------------------*\
+  #COMPONENTS
+\*------------------------------------*/
+
+/*
+    Component: Component name
+    ---
+    Component description
+*/
+
+/*
+    Component: layout block
+    ---
+    A small component to demonstrate the layout items
+*/
+
+.c-layout-block {
+  background-color: LightGrey;
+  padding: 8px 12px;
+  font-size: 14px;
+  line-height: 16px;
+}
+
+.c-layout-block--ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
 
 /*---------------------------------------/*
  # UTILITIES
@@ -366,12 +520,12 @@ a:active {
 @each $column in $columns {
   // Generate the grid classes
   @each $denominator, $numerator in $column {
-    // Begin creating a numberator for our fraction up until we hit the
+    // Begin creating a numerator for our fraction up until we hit the
     // denominator.
     @for $numerator from 1 through $denominator {
       // Build a class in the format `.u-4-of-6`
       .u-#{$numerator}-of-#{$denominator} {
-        width: calc(($numerator / $denominator) * 100%) !important;
+        flex-basis: calc(($numerator / $denominator) * 100%) !important;
       }
     }
   }
@@ -384,12 +538,12 @@ a:active {
     @each $column in $columns {
       // Generate the grid classes
       @each $denominator, $numerator in $column {
-        // Begin creating a numberator for our fraction up until we hit the
+        // Begin creating a numerator for our fraction up until we hit the
         // denominator.
         @for $numerator from 1 through $denominator {
-          // Build a class in the format `.u-4-of-6`
+          // Build a class in the format `.u-4-of-6-bp1`
           .u-#{$numerator}-of-#{$denominator}-#{$breakpoint} {
-            width: calc(($numerator / $denominator) * 100%) !important;
+            flex-basis: calc(($numerator / $denominator) * 100%) !important;
           }
         }
       }
