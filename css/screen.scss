@@ -95,7 +95,7 @@ $color-border-light: get-color(color-gray, 100);
 $color-border-dark: get-color(color-gray, 300);
 
 // ---
-// Settings: Type
+// Settings: Typography
 // ---
 
 $root-font-size: 16;
@@ -155,7 +155,7 @@ $breakpoints: (
 // Grid
 // ---
 
-// 1 times the $alpha-font-size. It's calculated in rem in _tools.spacing.scss
+// The gutter between columns
 $columns-gutter: $space-m;
 
 // Define the amount of columns in the grid
