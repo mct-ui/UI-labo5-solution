@@ -156,7 +156,9 @@ $breakpoints: (
 // ---
 
 // The gutter between columns
-$columns-gutter: $space-m;
+$grid-gutter: $space-m;
+$grid-gutter-s: $space-s;
+$grid-gutter-l: $space-l;
 
 // Define the amount of columns in the grid
 $columns: (2, 3, 4, 5, 6) !default;
@@ -270,7 +272,7 @@ figure {
 
 ul,
 ol {
-  padding-left: 1em;
+  margin-left: $space-m;
 }
 
 li ul,
@@ -341,8 +343,8 @@ a:active {
   color: white;
 }
 
-.o-row--lg {
-  @media (min-width: 769px) {
+.o-row--l {
+  @include mq(bp2) {
     padding: $space-xl $space-xl $space-m;
   }
 }
@@ -357,7 +359,7 @@ a:active {
   margin-left: auto;
   margin-right: auto;
   width: 100%;
-  max-width: 50em; /* 90 * 16px = 1440px */
+  max-width: 75em; /* 90 * 16px = 1440px */
 }
 
 /*
@@ -375,34 +377,38 @@ a:active {
 
 .o-layout__item {
   flex-basis: 100%;
-  flex-grow: 1;
-  flex-shrink: 1;
 }
 
 /* gutter modifiers, these affect o-layout__item too */
 
 .o-layout--gutter {
-  margin: 0 calc($columns-gutter / -2);
+  margin-left: calc($grid-gutter / -2);
+  margin-right: calc($grid-gutter / -2);
 }
 
 .o-layout--gutter > .o-layout__item {
-  padding: 0 calc($columns-gutter / 2);
+  padding-left: calc($grid-gutter / 2);
+  padding-right: calc($grid-gutter / 2);
 }
 
-.o-layout--gutter-sm {
-  margin: 0 -6px;
+.o-layout--gutter-s {
+  margin-left: calc($grid-gutter-s / -2);
+  margin-right: calc($grid-gutter-s / -2);
 }
 
-.o-layout--gutter-sm > .o-layout__item {
-  padding: 0 6px;
+.o-layout--gutter-s > .o-layout__item {
+  padding-left: calc($grid-gutter-s / 2);
+  padding-right: calc($grid-gutter-s / 2);
 }
 
-.o-layout--gutter-lg {
-  margin: 0 -24px;
+.o-layout--gutter-l {
+  margin-left: calc($grid-gutter-l / -2);
+  margin-right: calc($grid-gutter-l / -2);
 }
 
-.o-layout--gutter-lg > .o-layout__item {
-  padding: 0 24px;
+.o-layout--gutter-l > .o-layout__item {
+  padding-left: calc($grid-gutter-l / 2);
+  padding-right: calc($grid-gutter-l / 2);
 }
 
 /* reverse horizontal row modifier */
@@ -511,10 +517,28 @@ a:active {
 /*---------------------------------------*/
 
 /*
+    Utilities: Max widths
+    ---
+    max-width utility classes
+*/
+
+.u-max-width-m {
+  max-width: 60em;
+}
+
+.u-max-width-l {
+  max-width: 90em;
+}
+
+/*
     Utilities: Widths
     ---
     Width utility classes
 */
+
+.u-flex-basis-auto {
+  flex-basis: auto;
+}
 
 // Loop through the different columns
 @each $column in $columns {
@@ -533,7 +557,7 @@ a:active {
 
 // Loop through the different breakpoints
 @each $breakpoint, $value in $breakpoints {
-  @media (min-width: $value) {
+  @include mq($value) {
     // Loop through the different columns
     @each $column in $columns {
       // Generate the grid classes

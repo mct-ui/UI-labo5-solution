@@ -112,7 +112,7 @@ figure {
 
 ul,
 ol {
-  padding-left: 1em;
+  margin-left: 1.5rem;
 }
 
 li ul,
@@ -181,8 +181,8 @@ a:active {
   color: white;
 }
 
-@media (min-width: 769px) {
-  .o-row--lg {
+@media (min-width: 48.0625em) {
+  .o-row--l {
     padding: 3rem 3rem 1.5rem;
   }
 }
@@ -196,7 +196,7 @@ a:active {
   margin-left: auto;
   margin-right: auto;
   width: 100%;
-  max-width: 50em; /* 90 * 16px = 1440px */
+  max-width: 75em; /* 90 * 16px = 1440px */
 }
 
 /*
@@ -213,33 +213,37 @@ a:active {
 
 .o-layout__item {
   flex-basis: 100%;
-  flex-grow: 1;
-  flex-shrink: 1;
 }
 
 /* gutter modifiers, these affect o-layout__item too */
 .o-layout--gutter {
-  margin: 0 -0.75rem;
+  margin-left: -0.75rem;
+  margin-right: -0.75rem;
 }
 
 .o-layout--gutter > .o-layout__item {
-  padding: 0 0.75rem;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
 }
 
-.o-layout--gutter-sm {
-  margin: 0 -6px;
+.o-layout--gutter-s {
+  margin-left: -0.5rem;
+  margin-right: -0.5rem;
 }
 
-.o-layout--gutter-sm > .o-layout__item {
-  padding: 0 6px;
+.o-layout--gutter-s > .o-layout__item {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
 }
 
-.o-layout--gutter-lg {
-  margin: 0 -24px;
+.o-layout--gutter-l {
+  margin-left: -1.5rem;
+  margin-right: -1.5rem;
 }
 
-.o-layout--gutter-lg > .o-layout__item {
-  padding: 0 24px;
+.o-layout--gutter-l > .o-layout__item {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
 }
 
 /* reverse horizontal row modifier */
@@ -340,10 +344,27 @@ a:active {
  # UTILITIES
 /*---------------------------------------*/
 /*
+    Utilities: Max widths
+    ---
+    max-width utility classes
+*/
+.u-max-width-m {
+  max-width: 60em;
+}
+
+.u-max-width-l {
+  max-width: 90em;
+}
+
+/*
     Utilities: Widths
     ---
     Width utility classes
 */
+.u-flex-basis-auto {
+  flex-basis: auto;
+}
+
 .u-1-of-2 {
   flex-basis: 50% !important;
 }
