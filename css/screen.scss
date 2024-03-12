@@ -1,11 +1,13 @@
 /*---------------------------------------/*
- # TOOLS
+ # Imports
 /*---------------------------------------*/
 
-// a function to get the color from the palette
-@function get-color($palette, $color) {
-  @return map-get(map-get($palettes, $palette), $color);
-}
+// import open color
+@import "open-color";
+
+/*---------------------------------------/*
+ # TOOLS
+/*---------------------------------------*/
 
 //
 // Media Query mixin
@@ -34,65 +36,18 @@
 // Settings: Colors
 // ---
 
-$color-blue: #1abaff;
-$color-blue-hue: hue($color-blue);
-$color-blue-saturation: saturation($color-blue);
+$color-text: $oc-gray-9;
+$color-text-light: $oc-gray-7;
+$color-text-lighter: $oc-gray-6;
 
-$color-teal: #1affba;
-$color-teal-hue: hue($color-teal);
-$color-teal-saturation: saturation($color-teal);
+$color-primary: $oc-indigo-6;
+$color-primary-light: $oc-indigo-5;
+$color-primary-lighter: $oc-indigo-4;
+$color-primary-dark: $oc-indigo-7;
 
-$color-gray-hue: hue($color-blue);
-$color-gray-saturation: 10%;
-
-$palettes: (
-  color-gray: (
-    100: hsl($color-gray-hue, $color-gray-saturation, 95%),
-    200: hsl($color-gray-hue, $color-gray-saturation, 90%),
-    300: hsl($color-gray-hue, $color-gray-saturation, 80%),
-    400: hsl($color-gray-hue, $color-gray-saturation, 70%),
-    500: hsl($color-gray-hue, $color-gray-saturation, 50%),
-    600: hsl($color-gray-hue, $color-gray-saturation, 40%),
-    700: hsl($color-gray-hue, $color-gray-saturation, 30%),
-    800: hsl($color-gray-hue, $color-gray-saturation, 20%),
-    900: hsl($color-gray-hue, $color-gray-saturation, 10%),
-  ),
-  color-blue: (
-    100: hsl($color-blue-hue, $color-blue-saturation - 10%, 95%),
-    200: hsl($color-blue-hue, $color-blue-saturation - 10%, 90%),
-    300: hsl($color-blue-hue, $color-blue-saturation - 5%, 80%),
-    400: hsl($color-blue-hue, $color-blue-saturation - 5%, 65%),
-    500: hsl($color-blue-hue, $color-blue-saturation, 50%),
-    600: hsl($color-blue-hue, $color-blue-saturation + 5%, 40%),
-    700: hsl($color-blue-hue, $color-blue-saturation + 5%, 30%),
-    800: hsl($color-blue-hue, $color-blue-saturation + 10%, 20%),
-    900: hsl($color-blue-hue, $color-blue-saturation + 10%, 10%),
-  ),
-  color-teal: (
-    100: hsl($color-teal-hue, $color-teal-saturation - 10%, 95%),
-    200: hsl($color-teal-hue, $color-teal-saturation - 10%, 90%),
-    300: hsl($color-teal-hue, $color-teal-saturation - 5%, 80%),
-    400: hsl($color-teal-hue, $color-teal-saturation, 70%),
-    500: hsl($color-teal-hue, $color-teal-saturation, 50%),
-    600: hsl($color-teal-hue, $color-teal-saturation + 5%, 45%),
-    700: hsl($color-teal-hue, $color-teal-saturation + 5%, 35%),
-    800: hsl($color-teal-hue, $color-teal-saturation + 10%, 25%),
-    900: hsl($color-teal-hue, $color-teal-saturation + 10%, 15%),
-  ),
-);
-
-$color-text: get-color(color-gray, 900);
-$color-text-light: get-color(color-gray, 700);
-$color-text-lighter: get-color(color-gray, 500);
-
-$color-primary: get-color(color-blue, 600);
-$color-primary-light: get-color(color-blue, 500);
-$color-primary-lighter: get-color(color-blue, 400);
-$color-primary-dark: get-color(color-blue, 700);
-
-$color-border: get-color(color-gray, 200);
-$color-border-light: get-color(color-gray, 100);
-$color-border-dark: get-color(color-gray, 300);
+$color-border: $oc-gray-3;
+$color-border-light: $oc-gray-2;
+$color-border-dark: $oc-gray-4;
 
 // ---
 // Settings: Typography
@@ -134,7 +89,7 @@ $space-xxs: calc($baseline * 0.5); // 4px
 $space-xs: calc($baseline * 1); // 8px
 $space-s: calc($baseline * 2); // 16px
 $space-m: calc($baseline * 3); // 24px
-$space-l: calc($space-m * 2); // 32px
+$space-l: calc($space-s * 2); // 32px
 $space-xl: calc($space-m * 2); // 48px
 $space-xxl: calc($space-l * 2); // 64px
 $space-xxxl: calc($space-xl * 2); // 96px
@@ -154,6 +109,8 @@ $breakpoints: (
 // ---
 // Grid
 // ---
+
+$container-max-width: calc(1200 / $root-font-size * 1rem);
 
 // The gutter between columns
 $grid-gutter: $space-m;
@@ -281,7 +238,6 @@ li ol {
 }
 
 blockquote {
-  font-family: $font-family-secondary;
   font-style: italic;
   font-size: $ms3;
   line-height: calc($baseline * 4);
@@ -339,7 +295,7 @@ a:active {
 }
 
 .o-row--grey-dark {
-  background-color: get-color(color-gray, 800);
+  background-color: $color-text;
   color: white;
 }
 
@@ -359,7 +315,7 @@ a:active {
   margin-left: auto;
   margin-right: auto;
   width: 100%;
-  max-width: 75em; /* 90 * 16px = 1440px */
+  max-width: $container-max-width;
 }
 
 /*
@@ -461,7 +417,7 @@ a:active {
   align-items: baseline;
 }
 
-/* Vertical alignment modifiers that only work if there is one than one flex item */
+/* Vertical alignment modifiers that only work if there is more than one flex item */
 
 .o-layout--align-content-start {
   align-content: start;
@@ -522,12 +478,16 @@ a:active {
     max-width utility classes
 */
 
+.u-max-width-s {
+  max-width: calc(600 / 16 * 1rem);
+}
+
 .u-max-width-m {
-  max-width: 60em;
+  max-width: calc(960 / 16 * 1rem);
 }
 
 .u-max-width-l {
-  max-width: 90em;
+  max-width: calc(1400 / 16 * 1rem);
 }
 
 /*

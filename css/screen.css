@@ -1,4 +1,7 @@
 /*---------------------------------------/*
+ # Imports
+/*---------------------------------------*/
+/*---------------------------------------/*
  # TOOLS
 /*---------------------------------------*/
 /*---------------------------------------/*
@@ -37,7 +40,7 @@ html {
   font-size: 100%;
   line-height: 1.5;
   font-family: "Helvetica Neue", Helvetica, arial, sans-serif;
-  color: hsl(198.0786026201, 10%, 10%);
+  color: #212529;
   scroll-behavior: smooth;
 }
 
@@ -45,11 +48,11 @@ html {
     Customize the background color and color to match your design.
 */
 ::-moz-selection {
-  background: hsl(198.0786026201, 100%, 50%);
+  background: #5c7cfa;
   color: white;
 }
 ::selection {
-  background: hsl(198.0786026201, 100%, 50%);
+  background: #5c7cfa;
   color: white;
 }
 
@@ -121,7 +124,6 @@ li ol {
 }
 
 blockquote {
-  font-family: "Times New Roman", Times, serif;
   font-style: italic;
   font-size: 1.423828125rem;
   line-height: 2rem;
@@ -132,31 +134,31 @@ figcaption {
   font-size: 0.8888888889rem;
   line-height: 1rem;
   margin-top: 0.5rem;
-  color: hsl(198.0786026201, 10%, 50%);
+  color: #868e96;
 }
 
 hr {
   border: 0;
   height: 1px;
-  background: hsl(198.0786026201, 10%, 90%);
+  background: #dee2e6;
   margin-bottom: 1.5rem;
 }
 
 a {
-  color: hsl(198.0786026201, 100%, 40%);
+  color: #4c6ef5;
   transition: all 0.1s ease-in-out;
 }
 
 a:visited {
-  color: hsl(198.0786026201, 100%, 40%);
+  color: #4c6ef5;
 }
 
 a:hover {
-  color: hsl(198.0786026201, 100%, 50%);
+  color: #5c7cfa;
 }
 
 a:active {
-  color: hsl(198.0786026201, 100%, 30%);
+  color: #4263eb;
 }
 
 /*---------------------------------------/*
@@ -173,11 +175,11 @@ a:active {
 }
 
 .o-row--primary {
-  background: hsl(198.0786026201, 95%, 65%);
+  background: #748ffc;
 }
 
 .o-row--grey-dark {
-  background-color: hsl(198.0786026201, 10%, 20%);
+  background-color: #212529;
   color: white;
 }
 
@@ -196,7 +198,7 @@ a:active {
   margin-left: auto;
   margin-right: auto;
   width: 100%;
-  max-width: 75em; /* 90 * 16px = 1440px */
+  max-width: 75rem;
 }
 
 /*
@@ -237,13 +239,13 @@ a:active {
 }
 
 .o-layout--gutter-l {
-  margin-left: -1.5rem;
-  margin-right: -1.5rem;
+  margin-left: -1rem;
+  margin-right: -1rem;
 }
 
 .o-layout--gutter-l > .o-layout__item {
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 /* reverse horizontal row modifier */
@@ -293,7 +295,7 @@ a:active {
   align-items: baseline;
 }
 
-/* Vertical alignment modifiers that only work if there is one than one flex item */
+/* Vertical alignment modifiers that only work if there is more than one flex item */
 .o-layout--align-content-start {
   align-content: start;
 }
@@ -348,12 +350,16 @@ a:active {
     ---
     max-width utility classes
 */
+.u-max-width-s {
+  max-width: 37.5rem;
+}
+
 .u-max-width-m {
-  max-width: 60em;
+  max-width: 60rem;
 }
 
 .u-max-width-l {
-  max-width: 90em;
+  max-width: 87.5rem;
 }
 
 /*
